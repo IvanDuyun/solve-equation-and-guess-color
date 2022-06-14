@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block title %}Решение квадратного уравнения{% endblock %}
+
+{% block content %}
+    <h1>Введите коэффициенты:</h1>
+    <form action="" method="POST" >{% csrf_token %}
+        {{form.as_p }}
+        <input type="Submit" name="submit" value="Решить"/>
+    </form>
+    {% if submitbutton == "Решить" %}
+        {% if x1 == None and x2 == None %}
+            <h1>Уравнение не имеет решений.</h1>
+        {% elif x1 == 'all' %}
+            <h1>Уравнение имеет бесконечно много корней.</h1>
+        {% elif x2 == None %}
+            <h1>Уравнение имеет одно решение:</h1>
+            <h3>X = {{ x1 }}.</h3>
+        {% else %}
+            <h1>Уравнение имеет два решения:</h1>
+            <h3>X = {{ x1 }};</h3>
+            <h3>X = {{ x2 }}.</h3>
+        {% endif %}
+    {% endif %}
+{% endblock content %}

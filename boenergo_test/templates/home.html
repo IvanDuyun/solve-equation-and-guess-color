@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+
+{% block title %}Главная{% endblock %}
+
+{% block content %}
+
+    <h3>Выберете сервис:</h3>
+    <a href="{% url 'equation_solution:solution' %}" role="button" class="btn btn-primary w-100 mb-2">Решить уравнение</a>
+    <a href="{% url 'guess_color:guess' %}" role="button" class="btn btn-secondary w-100">Угадать цвет</a>
+
+{% endblock content %}
